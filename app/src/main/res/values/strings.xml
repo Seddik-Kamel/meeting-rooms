@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MeetingRooms</string>
+    <string name="button_delete_content_description">Button for delete meeting</string>
 </resources>
