@@ -1,4 +1,4 @@
-package com.example.meetingrooms.recyclerView;
+package com.example.meetingrooms.recyclerView.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;
 import com.example.meetingrooms.model.Meeting;
+import com.example.meetingrooms.recyclerView.viewHolders.MeetingViewHolder;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DummyMeetingApiService implements MeetingService{
 
-    private List<Meeting> meetings = FakeDataGenerator.DUMMY_MEETING;
+    private final List<Meeting> meetings = FakeDataGenerator.DUMMY_MEETING;
 
     @Override
     public List<Meeting> getMeeting() {
