@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meeting Rooms</string>
+    <string name="button_delete_content_description">Bouton pour supprimer  une reunion</string>
+    <string name="title_activity_add_meeting">Ajout d\'une réunion</string>
+    <string name="hour_title">Heure</string>
+    <string name="subject_title">Sujet</string>
+    <string name="place_title">Lieu</string>
+    <string name="participant_title">Participant</string>
+    <string name="add_title">Ajouter</string>
+    <string name="save_title">Enregistrer</string>
+    <string name="cancel_title">Annuler</string>
+</resources>

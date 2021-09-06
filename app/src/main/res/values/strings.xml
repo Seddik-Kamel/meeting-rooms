@@ -1,4 +1,13 @@
 <resources>
-    <string name="app_name">MeetingRooms</string>
+    <string name="app_name" translatable="false">Meeting Rooms</string>
     <string name="button_delete_content_description">Button for delete meeting</string>
+    <string name="title_activity_add_meeting">Add Meeting</string>
+    <string name="subject_title">Subject</string>
+    <string name="place_title">Place</string>
+    <string name="participant_title">Participant</string>
+    <string name="add_title">Add</string>
+    <string name="save_title">Save</string>
+    <string name="cancel_title">Cancel</string>
+    <string name="hour_title">Hour</string>
+    <string name="content_description_button">Buttonfor add meeting</string>
 </resources>

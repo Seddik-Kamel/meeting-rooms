@@ -1,15 +1,13 @@
 package com.example.meetingrooms.model;
 
-import java.util.List;
-
 public class Meeting {
     private long id;
     private String hour;
     private String place;
     private String subject;
-    private List<String> participants;
+    private Participant participants;
 
-    public Meeting(long id, String hour, String place, String subject, List<String> participants) {
+    public Meeting(long id, String hour, String place, String subject, Participant participants) {
         this.id = id;
         this.hour = hour;
         this.place = place;
@@ -51,11 +49,11 @@ public class Meeting {
         this.subject = subject;
     }
 
-    public List<String> getParticipants() {
+    public Participant getParticipants() {
         return participants;
     }
 
-    public void setParticipants(List<String> participants) {
+    public void setParticipants(Participant participants) {
         this.participants = participants;
     }
 
