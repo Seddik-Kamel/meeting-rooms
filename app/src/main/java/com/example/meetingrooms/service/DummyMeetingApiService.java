@@ -3,11 +3,21 @@ package com.example.meetingrooms.service;
 import com.example.meetingrooms.fakeData.FakeDataGenerator;
 import com.example.meetingrooms.model.Meeting;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 public class DummyMeetingApiService implements MeetingService{
 
-    private final List<Meeting> meetings = FakeDataGenerator.DUMMY_MEETING;
+    @Inject
+    public DummyMeetingApiService(){
+
+    }
+
+    private List<Meeting> meetings = new ArrayList<>(FakeDataGenerator.DUMMY_MEETING);
+
 
     @Override
     public List<Meeting> getMeeting() {

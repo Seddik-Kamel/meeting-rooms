@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;
 import com.example.meetingrooms.baseActivity.BaseActivity;
+import com.example.meetingrooms.model.Meeting;
 import com.example.meetingrooms.model.Participant;
 import com.example.meetingrooms.recyclerView.adapters.ParticipantsAdapter;
+import com.example.meetingrooms.service.MeetingService;
 import com.example.meetingrooms.utils.timePicker.TimePickerFragment;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -18,16 +20,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import dagger.hilt.android.AndroidEntryPoint;
 
-
+@AndroidEntryPoint
 public class AddMeetingActivity extends BaseActivity {
+
+    @Inject
+    MeetingService meetingService;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    @BindView(R.id.participants)
+    @BindView(R.id.participants_meeting)
     TextInputEditText ParticipantTextInputEditText;
 
     final List<Participant> participantList = new ArrayList<>();
