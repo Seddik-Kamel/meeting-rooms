@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nameLyt"
+        android:id="@+id/text_input_layout_hour_meeting"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneNumberLyt"
+        android:id="@+id/text_input_layout_subject"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,9 +40,12 @@
         android:layout_marginTop="@dimen/margin_top"
         android:layout_marginEnd="@dimen/margin"
         android:textColorHint="#757575"
+        app:endIconMode="clear_text"
+        app:counterEnabled="true"
+        app:counterMaxLength="25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameLyt"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_hour_meeting"
         app:startIconDrawable="@drawable/ic_baseline_subject_24"
         app:startIconTint="@color/aqua">
 
@@ -56,7 +59,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/text_input_layout_place"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,7 +69,7 @@
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberLyt"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_subject"
         app:startIconDrawable="@drawable/ic_baseline_place_24"
         app:startIconTint="@color/aqua">
 
@@ -79,7 +82,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/text_input_layout_participants"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -87,14 +90,16 @@
         android:layout_marginTop="@dimen/margin_top"
         android:textColorHint="#757575"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_place"
         app:layout_constraintWidth_default="percent"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
         app:layout_constraintWidth_percent="0.5"
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
         app:startIconTint="@color/aqua">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/participants"
+            android:id="@+id/participants_meeting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -111,10 +116,10 @@
         android:backgroundTint="@color/color_save"
         android:text="@string/add_title"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintBottom_toBottomOf="@+id/text_input_layout_participants"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toEndOf="@+id/textInputLayout2" />
+        app:layout_constraintStart_toEndOf="@+id/text_input_layout_participants" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -126,7 +131,7 @@
         app:layout_constraintBottom_toTopOf="@+id/cancel_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_participants"
         tools:context=".activities.MainActivity"
         tools:listitem="@layout/items_participants_recycler_view" />
 
