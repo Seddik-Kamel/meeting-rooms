@@ -2,7 +2,6 @@ package com.example.meetingrooms.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +13,9 @@ import com.example.meetingrooms.events.DeleteMeetingEvent;
 import com.example.meetingrooms.model.Meeting;
 import com.example.meetingrooms.recyclerView.adapters.MeetingAdapter;
 import com.example.meetingrooms.service.MeetingService;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
@@ -41,12 +43,6 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        //EventBus.getDefault().register(this);
-    }
-
     private void initRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL));
@@ -60,8 +56,24 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+       initList();
+    }
+
+    private void initList() {
         meetings = meetingService.getMeeting();
         recyclerView.setAdapter(new MeetingAdapter(meetings));
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
 
@@ -71,8 +83,9 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    //@Subscribe
+    @Subscribe
     public void onDeleteMeeting(DeleteMeetingEvent deleteMeetingEvent){
-        Log.d("MainActivity", deleteMeetingEvent.meeting.getPlace());
+        meetingService.DeleteMeeting(deleteMeetingEvent.meeting);
+        initList();
     }
 }
