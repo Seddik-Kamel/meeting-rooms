@@ -3,7 +3,7 @@
     package="com.example.meetingrooms">
 
     <application
-        android:name=".application.MeetingApplication"
+        android:name=".MeetingApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,11 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MeetingRooms">
         <activity
-            android:name=".ui.activities.AddMeetingActivity"
+            android:name=".architecture.ui.activities.AddMeetingActivity"
             android:exported="true"
             android:label="@string/title_activity_add_meeting" />
         <activity
-            android:name=".ui.activities.ListMeetingActivity"
+            android:name=".architecture.ui.activities.ListMeetingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,9 +1,9 @@
 package com.example.meetingrooms.di.modules;
 
-import com.example.meetingrooms.applicationservices.ParticipantService;
-import com.example.meetingrooms.applicationservices.ParticipantServiceImpl;
-import com.example.meetingrooms.domainService.ParticipantDomainService;
-import com.example.meetingrooms.domainService.ParticipantDomainServiceImpl;
+import com.example.meetingrooms.architecture.applicationservices.ParticipantService;
+import com.example.meetingrooms.architecture.applicationservices.ParticipantServiceImpl;
+import com.example.meetingrooms.architecture.domainService.ParticipantDomainService;
+import com.example.meetingrooms.architecture.domainService.ParticipantDomainServiceImpl;
 
 import dagger.Binds;
 import dagger.Module;

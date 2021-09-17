@@ -1,7 +1,7 @@
 package com.example.meetingrooms.di.modules;
 
-import com.example.meetingrooms.infrastructure.repository.ParticipantRepositoryImpl;
-import com.example.meetingrooms.infrastructure.repository.ParticipantRepositoryService;
+import com.example.meetingrooms.architecture.infrastructure.repository.ParticipantRepositoryImpl;
+import com.example.meetingrooms.architecture.infrastructure.repository.ParticipantRepositoryService;
 
 import dagger.Binds;
 import dagger.Module;

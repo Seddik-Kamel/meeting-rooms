@@ -1,7 +1,7 @@
 package com.example.meetingrooms.di.modules;
 
-import com.example.meetingrooms.domainService.MeetingDomainService;
-import com.example.meetingrooms.domainService.MeetingDomainServiceImpl;
+import com.example.meetingrooms.architecture.domainService.MeetingDomainService;
+import com.example.meetingrooms.architecture.domainService.MeetingDomainServiceImpl;
 
 import javax.inject.Singleton;
 

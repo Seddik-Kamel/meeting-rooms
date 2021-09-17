@@ -1,7 +1,7 @@
 package com.example.meetingrooms.di.modules;
 
-import com.example.meetingrooms.applicationservices.AddMeetingService;
-import com.example.meetingrooms.applicationservices.AddMeetingServiceImpl;
+import com.example.meetingrooms.architecture.applicationservices.AddMeetingService;
+import com.example.meetingrooms.architecture.applicationservices.AddMeetingServiceImpl;
 
 import dagger.Binds;
 import dagger.Module;
