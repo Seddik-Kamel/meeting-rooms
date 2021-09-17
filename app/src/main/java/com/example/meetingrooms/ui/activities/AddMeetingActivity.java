@@ -1,4 +1,4 @@
-package com.example.meetingrooms.activities;
+package com.example.meetingrooms.ui.activities;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -11,19 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;
 import com.example.meetingrooms.baseActivity.BaseActivity;
-import com.example.meetingrooms.fakeData.FakeDataGenerator;
-import com.example.meetingrooms.model.Meeting;
-import com.example.meetingrooms.model.Participant;
-import com.example.meetingrooms.recyclerView.adapters.ParticipantsAdapter;
-import com.example.meetingrooms.service.MeetingService;
+import com.example.meetingrooms.model.MeetingModel;
+import com.example.meetingrooms.model.ParticipantModel;
+import com.example.meetingrooms.ui.recyclerView.adapters.ParticipantsAdapter;
+import com.example.meetingrooms.ui.viewModel.SaveMeetingViewModel;
+import com.example.meetingrooms.ui.viewModel.ParticipantListViewModel;
 import com.example.meetingrooms.utils.EmailWatcher;
 import com.example.meetingrooms.utils.timePicker.TimePickerFragment;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import javax.inject.Inject;
@@ -36,7 +34,10 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class AddMeetingActivity extends BaseActivity {
 
     @Inject
-    MeetingService meetingService;
+    SaveMeetingViewModel addMeetingViewModel;
+
+    @Inject
+    ParticipantListViewModel participantListViewModel;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -59,16 +60,29 @@ public class AddMeetingActivity extends BaseActivity {
     @BindView(R.id.text_input_layout_subject)
     TextInputLayout textInputLayoutSubject;
 
-    final List<Participant> participantList = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initRecyclerView();
+        initSpinner();
+        initParticipantList();
+        initTextChangedListener();
+    }
+
+    private void initTextChangedListener() {
+        Objects.requireNonNull(textInputLayoutParticipants.getEditText()).addTextChangedListener(new EmailWatcher(textInputLayoutParticipants, addParticipant));
+    }
+
+    private void initParticipantList() {
+        participantListViewModel.clearParticipant();
+    }
+
+    private void initRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL));
+    }
 
-        Objects.requireNonNull(textInputLayoutParticipants.getEditText()).addTextChangedListener(new EmailWatcher(textInputLayoutParticipants, addParticipant));
-
+    private void initSpinner(){
         String[] stringList = getResources().getStringArray(R.array.place_meeting);
         autoCompleteTextViewPlace.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_participants, stringList));
     }
@@ -86,52 +100,29 @@ public class AddMeetingActivity extends BaseActivity {
 
     @OnClick(R.id.add_participant)
     void addParticipants() {
-        String participantMails = Objects.requireNonNull(participantTextInputEditText.getText()).toString();
-        Participant participant = new Participant("Seddik", "Kamel", 34, "");
-        participant.setMails(participantMails);
-        participantList.add(participant);
-        recyclerView.setAdapter(new ParticipantsAdapter(participantList));
-
-        Objects.requireNonNull(textInputLayoutParticipants.getEditText()).setText(null);
+        participantListViewModel.saveParticipant( new ParticipantModel("Test", "Test", 34,  Objects.requireNonNull(participantTextInputEditText.getText()).toString()));
+        initParticipantView();
     }
 
     @OnClick(R.id.save)
-    void saveMeeting() {
-
+    void addMeeting() {
         String hourMeeting = Objects.requireNonNull(textInputEditTextHourMeeting.getText()).toString();
         String place = autoCompleteTextViewPlace.getText().toString();
         String subject = Objects.requireNonNull(textInputLayoutSubject.getEditText()).getText().toString();
-        int resource = 0;
-
-        resource = getResource(place, resource);
-
-        Meeting meeting = new Meeting(4, hourMeeting,
-                place,
-                subject, participantList, resource);
-        meetingService.createMeeting(meeting);
-
+        saveMeeting(hourMeeting, place, subject);
 
         finish();
     }
 
-    private int getResource(String place, int resource) {
-        switch (place) {
-            case "Ouranos":
-                resource = FakeDataGenerator.OURANOS_COLOR;
-                break;
-            case "Apollon":
-                resource = FakeDataGenerator.APOLLON_COLOR;
-                break;
-            case "Arès":
-                resource = FakeDataGenerator.ARES_COLOR;
-                break;
-            case "Poseidon":
-                resource = FakeDataGenerator.POSEIDON_COLOR;
-                break;
-            case "Rhea":
-                resource = FakeDataGenerator.RHEA_COLOR;
-                break;
-        }
-        return resource;
+    private void saveMeeting(String hourMeeting, String place, String subject) {
+        MeetingModel meeting = new MeetingModel(4, hourMeeting,
+                place,
+                subject, participantListViewModel.getParticipantsList());
+        addMeetingViewModel.saveMeeting(meeting);
+    }
+
+    private void initParticipantView() {
+        recyclerView.setAdapter(new ParticipantsAdapter(participantListViewModel.getParticipantsList()));
+        Objects.requireNonNull(textInputLayoutParticipants.getEditText()).setText(null);
     }
 }

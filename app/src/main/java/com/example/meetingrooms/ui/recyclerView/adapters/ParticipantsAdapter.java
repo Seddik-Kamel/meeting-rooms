@@ -1,4 +1,4 @@
-package com.example.meetingrooms.recyclerView.adapters;
+package com.example.meetingrooms.ui.recyclerView.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,16 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;
-import com.example.meetingrooms.model.Participant;
-import com.example.meetingrooms.recyclerView.viewHolders.ParticipantsViewHolder;
+import com.example.meetingrooms.model.ParticipantModel;
+import com.example.meetingrooms.ui.recyclerView.viewHolders.ParticipantsViewHolder;
 
 import java.util.List;
 
 public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsViewHolder> {
 
-    final List<Participant> participantList;
+    final List<ParticipantModel> participantList;
 
-    public ParticipantsAdapter(List<Participant> participantList) {
+    public ParticipantsAdapter(List<ParticipantModel> participantList) {
         this.participantList = participantList;
     }
 

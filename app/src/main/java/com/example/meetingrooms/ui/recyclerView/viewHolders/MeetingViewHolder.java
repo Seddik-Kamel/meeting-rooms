@@ -1,4 +1,4 @@
-package com.example.meetingrooms.recyclerView.viewHolders;
+package com.example.meetingrooms.ui.recyclerView.viewHolders;
 
 import android.view.View;
 import android.widget.ImageButton;
@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.widget.ImageViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;

@@ -2,22 +2,30 @@ package com.example.meetingrooms.model;
 
 import java.util.List;
 
-public class Meeting {
+public class MeetingModel {
     private long id;
     private String hour;
     private String place;
     private String subject;
 
-    private List<Participant> participants;
+    private List<ParticipantModel> participants;
     private int resource;
 
-    public Meeting(long id, String hour, String place, String subject, List<Participant> participants, int resource) {
+    public MeetingModel(long id, String hour, String place, String subject, List<ParticipantModel> participants, int resource) {
         this.id = id;
         this.hour = hour;
         this.place = place;
         this.subject = subject;
         this.participants = participants;
         this.resource = resource;
+    }
+
+    public MeetingModel(long id, String hour, String place, String subject, List<ParticipantModel> participants) {
+        this.id = id;
+        this.hour = hour;
+        this.place = place;
+        this.subject = subject;
+        this.participants = participants;
     }
 
 // Getters and Setters.
@@ -54,11 +62,11 @@ public class Meeting {
         this.subject = subject;
     }
 
-    public List<Participant> getParticipants() {
+    public List<ParticipantModel> getParticipants() {
         return participants;
     }
 
-    public void setParticipants(List<Participant> participants) {
+    public void setParticipants(List<ParticipantModel> participants) {
         this.participants = participants;
     }
 

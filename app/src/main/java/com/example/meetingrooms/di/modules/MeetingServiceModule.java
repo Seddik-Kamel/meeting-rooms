@@ -1,7 +1,7 @@
 package com.example.meetingrooms.di.modules;
 
-import com.example.meetingrooms.service.DummyMeetingApiService;
-import com.example.meetingrooms.service.MeetingService;
+import com.example.meetingrooms.domainService.MeetingDomainService;
+import com.example.meetingrooms.domainService.MeetingDomainServiceImpl;
 
 import javax.inject.Singleton;
 
@@ -16,5 +16,5 @@ public abstract class MeetingServiceModule {
 
     @Binds
     @Singleton
-    abstract MeetingService provideMeetingService(DummyMeetingApiService dummyMeetingApiService);
+    abstract MeetingDomainService provideMeetingService(MeetingDomainServiceImpl dummyMeetingApiService);
 }

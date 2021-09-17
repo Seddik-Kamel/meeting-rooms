@@ -1,4 +1,4 @@
-package com.example.meetingrooms.recyclerView.viewHolders;
+package com.example.meetingrooms.ui.recyclerView.viewHolders;
 
 import android.view.View;
 import android.widget.TextView;

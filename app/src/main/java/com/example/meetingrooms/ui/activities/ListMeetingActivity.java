@@ -1,4 +1,4 @@
-package com.example.meetingrooms.activities;
+package com.example.meetingrooms.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,15 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;
 import com.example.meetingrooms.baseActivity.BaseActivity;
-import com.example.meetingrooms.events.DeleteMeetingEvent;
-import com.example.meetingrooms.model.Meeting;
-import com.example.meetingrooms.recyclerView.adapters.MeetingAdapter;
-import com.example.meetingrooms.service.MeetingService;
+import com.example.meetingrooms.ui.events.DeleteMeetingEvent;
+import com.example.meetingrooms.ui.recyclerView.adapters.MeetingAdapter;
+import com.example.meetingrooms.ui.viewModel.MeetingListViewModel;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -26,12 +23,10 @@ import butterknife.OnClick;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class MainActivity extends BaseActivity {
+public class ListMeetingActivity extends BaseActivity {
 
-   @Inject
-   MeetingService meetingService;
-
-   private List<Meeting>meetings;
+    @Inject
+    MeetingListViewModel listMeetingViewHolder;
 
     @BindView(R.id.list_meeting)
     RecyclerView recyclerView;
@@ -40,7 +35,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initRecyclerView();
-
     }
 
     private void initRecyclerView() {
@@ -56,12 +50,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-       initList();
+        initList();
     }
 
     private void initList() {
-        meetings = meetingService.getMeeting();
-        recyclerView.setAdapter(new MeetingAdapter(meetings));
+        recyclerView.setAdapter(new MeetingAdapter(listMeetingViewHolder.getMeeting()));
     }
 
     @Override
@@ -76,7 +69,6 @@ public class MainActivity extends BaseActivity {
         EventBus.getDefault().unregister(this);
     }
 
-
     @OnClick(R.id.add_meeting)
     void addNewMeeting() {
         Intent intent = new Intent(getApplicationContext(), AddMeetingActivity.class);
@@ -84,8 +76,8 @@ public class MainActivity extends BaseActivity {
     }
 
     @Subscribe
-    public void onDeleteMeeting(DeleteMeetingEvent deleteMeetingEvent){
-        meetingService.DeleteMeeting(deleteMeetingEvent.meeting);
+    public void onDeleteMeeting(DeleteMeetingEvent deleteMeetingEvent) {
+        listMeetingViewHolder.deleteMeeting(deleteMeetingEvent.meeting);
         initList();
     }
 }

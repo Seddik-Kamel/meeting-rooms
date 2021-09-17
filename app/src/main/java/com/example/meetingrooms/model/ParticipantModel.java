@@ -1,6 +1,6 @@
 package com.example.meetingrooms.model;
 
-public class Participant {
+public class ParticipantModel {
 
     private String name;
     private String lastName;
@@ -8,7 +8,7 @@ public class Participant {
     private String mails;
 
 
-    public Participant(String name, String lastName, int age, String mails) {
+    public ParticipantModel(String name, String lastName, int age, String mails) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;

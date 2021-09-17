@@ -11,11 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MeetingRooms">
         <activity
-            android:name=".activities.AddMeetingActivity"
+            android:name=".ui.activities.AddMeetingActivity"
             android:exported="true"
             android:label="@string/title_activity_add_meeting" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".ui.activities.ListMeetingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,5 @@
-package com.example.meetingrooms.recyclerView.adapters;
+package com.example.meetingrooms.ui.recyclerView.adapters;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +8,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;
-import com.example.meetingrooms.events.DeleteMeetingEvent;
-import com.example.meetingrooms.model.Meeting;
-import com.example.meetingrooms.recyclerView.viewHolders.MeetingViewHolder;
+import com.example.meetingrooms.ui.events.DeleteMeetingEvent;
+import com.example.meetingrooms.model.MeetingModel;
+import com.example.meetingrooms.ui.recyclerView.viewHolders.MeetingViewHolder;
+import com.example.meetingrooms.ui.viewModel.ParticipantListViewModel;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class MeetingAdapter extends RecyclerView.Adapter<MeetingViewHolder> {
 
-    private final List<Meeting> meetingList;
+    @Inject
+    ParticipantListViewModel participantListViewModel;
 
-    public MeetingAdapter(List<Meeting> meetingList) {
+    private final List<MeetingModel> meetingList;
+
+    public MeetingAdapter(List<MeetingModel> meetingList) {
         this.meetingList = meetingList;
     }
 
@@ -36,7 +41,7 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MeetingViewHolder holder, int position) {
-        Meeting meeting = meetingList.get(position);
+        MeetingModel meeting = meetingList.get(position);
         StringBuilder participantEmail = new StringBuilder();
 
         for (int i = 0; i < meeting.getParticipants().size(); i++) {
@@ -54,9 +59,7 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingViewHolder> {
 
         holder.itemImageMeeting.setImageResource(meeting.getResource());
 
-        holder.deleteMeeting.setOnClickListener(v -> {
-            EventBus.getDefault().post( new DeleteMeetingEvent(meeting));
-        });
+        holder.deleteMeeting.setOnClickListener(v -> EventBus.getDefault().post( new DeleteMeetingEvent(meeting)));
     }
 
     @Override
