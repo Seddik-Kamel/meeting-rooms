@@ -9,7 +9,8 @@
     <string name="save_title">Save</string>
     <string name="cancel_title">Cancel</string>
     <string name="hour_title">Hour</string>
-    <string name="content_description_button">Button for add meeting</string>
+    <string name="content_description_button" translatable="false">Button for add meeting</string>
+    <string name="item_title" translatable="false">Item</string>
 
     <string-array name="place_meeting">
         <item>Ouranos</item>
