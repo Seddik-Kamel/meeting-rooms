@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 
 public class MeetingViewHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.delete_meeting)
+    @BindView(R.id.item_delete_meeting)
     public ImageButton deleteMeeting;
 
     @BindView(R.id.item_participtant_email)

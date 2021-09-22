@@ -39,7 +39,7 @@ public class AddMeetingActivity extends BaseActivity {
     @Inject
     ParticipantListViewModel participantListViewModel;
 
-    @BindView(R.id.recyclerView)
+    @BindView(R.id.recyclerView_participant)
     RecyclerView recyclerView;
 
     @BindView(R.id.participants_meeting)

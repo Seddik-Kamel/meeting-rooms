@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 public class ParticipantRepositoryImpl implements ParticipantRepositoryService {
 
-    public static List<ParticipantModel> participantList = new ArrayList<>();
+    public static final List<ParticipantModel> participantList = new ArrayList<>();
 
     @Inject
     public ParticipantRepositoryImpl(){

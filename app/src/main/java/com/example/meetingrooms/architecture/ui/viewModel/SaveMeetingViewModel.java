@@ -5,12 +5,14 @@ import com.example.meetingrooms.exceptions.MeetingMissingMandatoryFieldsExceptio
 import com.example.meetingrooms.architecture.infrastructure.repository.ParticipantRepositoryService;
 import com.example.meetingrooms.architecture.model.MeetingModel;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 public class SaveMeetingViewModel {
 
-    public AddMeetingService addMeetingService;
-    public ParticipantRepositoryService participantRepositoryService;
+    public final AddMeetingService addMeetingService;
+    public final ParticipantRepositoryService participantRepositoryService;
 
     @Inject
     public SaveMeetingViewModel(AddMeetingService addMeetingService,
@@ -25,9 +27,12 @@ public class SaveMeetingViewModel {
             addMeetingService.saveMeeting(meetingModel);
         } catch (MeetingMissingMandatoryFieldsException e) {
             //on fait quelque chose
-            int jk =0;
+            int jk = 0;
         }
-
     }
 
+    // For test.
+    public List getParticipants(){
+        return participantRepositoryService.getParticipants();
+    }
 }

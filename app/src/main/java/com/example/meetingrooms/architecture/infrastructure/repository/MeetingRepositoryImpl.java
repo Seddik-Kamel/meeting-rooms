@@ -15,7 +15,7 @@ public class MeetingRepositoryImpl implements MeetingRepositoryService {
     public MeetingRepositoryImpl() {
     }
 
-    public static List<MeetingModel> meetingModelList = new ArrayList<>(FakeDataGenerator.DUMMY_MEETING);
+    public static final List<MeetingModel> meetingModelList = new ArrayList<>(FakeDataGenerator.DUMMY_MEETING);
 
     @Override
     public void create(MeetingModel meetingModel) {

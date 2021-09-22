@@ -16,7 +16,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/delete_meeting"
+        android:id="@+id/item_delete_meeting"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@null"

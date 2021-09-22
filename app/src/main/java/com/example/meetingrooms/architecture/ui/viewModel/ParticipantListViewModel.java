@@ -1,7 +1,7 @@
 package com.example.meetingrooms.architecture.ui.viewModel;
 
 import com.example.meetingrooms.architecture.applicationservices.ParticipantService;
-import com.example.meetingrooms.exceptions.EmailNotValidException;
+import com.example.meetingrooms.exceptions.InvalidEmailException;
 import com.example.meetingrooms.architecture.infrastructure.repository.ParticipantRepositoryService;
 import com.example.meetingrooms.architecture.model.ParticipantModel;
 
@@ -11,8 +11,8 @@ import javax.inject.Inject;
 
 public class ParticipantListViewModel {
 
-    public ParticipantRepositoryService participantRepositoryService;
-    public ParticipantService participantService;
+    public final ParticipantRepositoryService participantRepositoryService;
+    public final ParticipantService participantService;
 
     @Inject
     public ParticipantListViewModel(ParticipantRepositoryService participantRepositoryService,ParticipantService participantService ) {
@@ -31,7 +31,7 @@ public class ParticipantListViewModel {
     public void saveParticipant(ParticipantModel participantModel) {
         try {
             participantService.saveParticipant(participantModel);
-        }catch (EmailNotValidException e){
+        }catch (InvalidEmailException e){
 
         }
 

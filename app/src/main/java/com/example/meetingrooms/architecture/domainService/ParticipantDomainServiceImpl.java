@@ -1,6 +1,6 @@
 package com.example.meetingrooms.architecture.domainService;
 
-import com.example.meetingrooms.exceptions.EmailNotValidException;
+import com.example.meetingrooms.exceptions.InvalidEmailException;
 import com.example.meetingrooms.architecture.model.ParticipantModel;
 
 import java.util.regex.Matcher;
@@ -22,7 +22,7 @@ public class ParticipantDomainServiceImpl implements ParticipantDomainService {
     public void validParticipantMail(ParticipantModel participantModel) {
 
         if (isNotValidEmail(participantModel)){
-            throw new EmailNotValidException();
+            throw new InvalidEmailException();
         }
     }
 

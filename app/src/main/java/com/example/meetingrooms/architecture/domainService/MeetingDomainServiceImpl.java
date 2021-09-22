@@ -1,8 +1,8 @@
 package com.example.meetingrooms.architecture.domainService;
 
-import com.example.meetingrooms.exceptions.MeetingMissingMandatoryFieldsException;
 import com.example.meetingrooms.architecture.database.fakeData.FakeDataGenerator;
 import com.example.meetingrooms.architecture.model.MeetingModel;
+import com.example.meetingrooms.exceptions.MeetingMissingMandatoryFieldsException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +12,19 @@ import javax.inject.Inject;
 public class MeetingDomainServiceImpl implements MeetingDomainService {
 
     @Inject
-    public MeetingDomainServiceImpl(){
+    public MeetingDomainServiceImpl() {
     }
 
     @Override
     public void validMeeting(MeetingModel meetingModel) {
-        if (areMandatoryFieldMissing(meetingModel)){
-            throw new MeetingMissingMandatoryFieldsException( getUserMissingFields(meetingModel));
+        if (areMandatoryFieldMissing(meetingModel)) {
+            throw new MeetingMissingMandatoryFieldsException(getUserMissingFields(meetingModel));
         }
 
         meetingModel.setResource(getResource(meetingModel.getPlace()));
     }
 
-    private boolean areMandatoryFieldMissing(MeetingModel meetingModel){
+    private boolean areMandatoryFieldMissing(MeetingModel meetingModel) {
         return meetingModel.getHour().isEmpty() || meetingModel.getPlace().isEmpty() || meetingModel.getParticipants().isEmpty();
     }
 
