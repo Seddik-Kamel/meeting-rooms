@@ -20,26 +20,26 @@ public class ParticipantRepositoryImplTest {
     }
 
     @Test
-    public void create() {
+    public void myParticipantRepository_createParticipant_shouldContainsParticipant() {
         participantRepositoryService.create(participantModel);
         assertTrue(participantRepositoryService.getParticipants().contains(participantModel));
     }
 
     @Test
-    public void getParticipants() {
+    public void myParticipantRepository_getParticipants_shouldItemCountEQUAL1() {
         participantRepositoryService.create(participantModel);
         assertEquals(1, participantRepositoryService.getParticipants().size());
     }
 
     @Test
-    public void delete() {
+    public void myParticipantRepository_deleteParticipant_shouldNoContainsParticipant() {
         participantRepositoryService.create(participantModel);
         participantRepositoryService.delete(participantModel);
         assertFalse(participantRepositoryService.getParticipants().contains(participantModel));
     }
 
     @Test
-    public void clearList() {
+    public void myParticipantRepository_clearList_shouldNbrParticipantsEqual0() {
         participantRepositoryService.create(participantModel);
         participantRepositoryService.create(participantModel);
         participantRepositoryService.create(participantModel);

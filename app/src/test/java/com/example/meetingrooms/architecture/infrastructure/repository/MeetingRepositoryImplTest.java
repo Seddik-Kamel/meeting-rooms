@@ -21,18 +21,18 @@ public class MeetingRepositoryImplTest {
     }
 
     @Test
-    public void create() {
+    public void myMeetingRepository_createMeeting_shouldContainsMeetingModel() {
        meetingRepositoryService.create(meetingModel);
        assertTrue(meetingRepositoryService.getMeeting().contains(meetingModel));
     }
 
     @Test
-    public void getMeeting() {
+    public void myMeetingRepository_getMeeting_shouldItemCountEQUAL51() {
         assertEquals(51, meetingRepositoryService.getMeeting().size());
     }
 
     @Test
-    public void delete() {
+    public void myMeetingRepository_deleteMeeting_shouldNoContainsMeetingModelAdded() {
         meetingRepositoryService.delete(meetingModel);
         assertFalse(meetingRepositoryService.getMeeting().contains(meetingModel));
     }
