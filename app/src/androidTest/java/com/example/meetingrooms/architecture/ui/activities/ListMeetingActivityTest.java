@@ -3,6 +3,7 @@ package com.example.meetingrooms.architecture.ui.activities;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -52,4 +53,13 @@ public class ListMeetingActivityTest {
         onView(ViewMatchers.withId(R.id.add_meeting)).perform(click());
         onView(withId(R.id.view_add_activity)).check(matches(isDisplayed()));
     }
+
+
+    @Test
+    public void myMeetingList_searchPlace_shouldDisplayMeetingWithPlaceAthena(){
+        onView(ViewMatchers.withId(R.id.action_search)).perform(click());
+        onView(ViewMatchers.withId(R.id.search_src_text)).perform(replaceText("athena"));
+        onView(ViewMatchers.withId(R.id.list_meeting)).check(RecyclerViewItemCountAssertion.withItemCount(1));
+    }
+
 }

@@ -11,6 +11,7 @@
     <string name="hour_title">Hour</string>
     <string name="content_description_button" translatable="false">Button for add meeting</string>
     <string name="item_title" translatable="false">Item</string>
+    <string name="action_search" translatable="false">Search</string>
 
     <string-array name="place_meeting">
         <item>Ouranos</item>
