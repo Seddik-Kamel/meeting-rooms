@@ -26,8 +26,7 @@ public class SaveMeetingViewModel {
         try {
             addMeetingService.saveMeeting(meetingModel);
         } catch (MeetingMissingMandatoryFieldsException e) {
-            //on fait quelque chose
-            int jk = 0;
+
         }
     }
 
