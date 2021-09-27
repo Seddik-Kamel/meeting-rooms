@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/view_add_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:id="@+id/view_add_activity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_layout_hour_meeting"
@@ -24,7 +30,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/hour"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:ems="10"
             android:focusableInTouchMode="false"
             android:inputType="textPersonName" />
@@ -39,9 +45,9 @@
         android:layout_marginStart="@dimen/margin"
         android:layout_marginTop="@dimen/margin_top"
         android:layout_marginEnd="@dimen/margin"
-        app:endIconMode="clear_text"
         app:counterEnabled="true"
         app:counterMaxLength="25"
+        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_hour_meeting"
@@ -51,7 +57,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText_subject"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:ems="10"
             android:hint="@string/subject_title"
             android:inputType="textAutoComplete" />
@@ -74,7 +80,7 @@
         <AutoCompleteTextView
             android:id="@+id/autoComplete_place"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:hint="@string/place_title"
             android:inputType="none" />
 
@@ -85,21 +91,21 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/margin"
         android:layout_marginTop="@dimen/margin_top"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_place"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.7"
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
-        app:endIconMode="clear_text"
-        app:errorEnabled="true"
         app:startIconTint="@color/aqua">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/participants_meeting"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:ems="10"
             android:hint="@string/participant_title"
             android:inputType="textAutoComplete" />
@@ -109,22 +115,25 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/add_participant"
         style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:backgroundTint="@color/color_save"
         android:text="@string/add_title"
         app:layout_constraintBottom_toBottomOf="@+id/text_input_layout_participants"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_place" />
+        app:layout_constraintStart_toEndOf="@+id/text_input_layout_participants"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_place"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.2" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_participant"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="@dimen/margin"
         android:layout_marginTop="@dimen/margin"
         android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/cancel_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +159,7 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginBottom="@dimen/margin"
+        android:layout_marginBottom="7dp"
         android:backgroundTint="@color/color_cancel"
         android:text="@string/cancel_title"
         app:cornerRadius="10dp"
@@ -167,3 +176,4 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+</ScrollView>
