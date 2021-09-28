@@ -33,6 +33,7 @@ public class ParticipantRepositoryImplTest {
 
     @Test
     public void myParticipantRepository_deleteParticipant_shouldNoContainsParticipant() {
+        participantRepositoryService.clearList();
         participantRepositoryService.create(participantModel);
         participantRepositoryService.delete(participantModel);
         assertFalse(participantRepositoryService.getParticipants().contains(participantModel));
