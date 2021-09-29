@@ -8,21 +8,21 @@ import javax.inject.Inject;
 
 public class NewMeetingServiceImpl implements NewMeetingService {
 
-    private  final MeetingDomainService meetingService;
+    private  final MeetingDomainService meetingDomainService;
     private  final MeetingRepositoryService meetingRepositoryService;
 
 
     @Inject
-    public NewMeetingServiceImpl(MeetingDomainService meetingService,
+    public NewMeetingServiceImpl(MeetingDomainService meetingDomainService,
                                  MeetingRepositoryService meetingRepositoryService) {
 
-        this.meetingService = meetingService;
+        this.meetingDomainService = meetingDomainService;
         this.meetingRepositoryService = meetingRepositoryService;
     }
 
     @Override
     public void saveMeeting(MeetingModel meetingModel) {
-        meetingService.validateMeeting(meetingModel);
+        meetingDomainService.validateMeeting(meetingModel);
         meetingRepositoryService.create(meetingModel);
     }
 
