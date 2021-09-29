@@ -114,6 +114,13 @@ public class NewMeetingActivity extends BaseActivity {
         finish();
     }
 
+    @OnClick(R.id.cancel_button)
+    void cancel(){
+        finish();
+    }
+
+
+
     private void saveMeeting(String hourMeeting, String place, String subject) {
         MeetingModel meeting = new MeetingModel(4, hourMeeting,
                 place,
@@ -125,4 +132,6 @@ public class NewMeetingActivity extends BaseActivity {
         recyclerView.setAdapter(new ParticipantsAdapter(participantListViewModel.getParticipantsList()));
         Objects.requireNonNull(textInputLayoutParticipants.getEditText()).setText(null);
     }
+
+
 }
