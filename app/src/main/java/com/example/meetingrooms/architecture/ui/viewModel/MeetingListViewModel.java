@@ -23,4 +23,8 @@ public class MeetingListViewModel {
     public void  deleteMeeting(MeetingModel meetingModel){
         meetingRepositoryService.delete(meetingModel);
     }
+
+    public void createMeeting(MeetingModel meetingModel){
+        meetingRepositoryService.create(meetingModel);
+    }
 }

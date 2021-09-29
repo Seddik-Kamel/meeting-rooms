@@ -49,7 +49,7 @@ public class ListMeetingActivityTest {
     }
 
     @Test
-    public void myMeetingList_clickFloatingButtonAction_shouldStartAddMeetingActivity(){
+    public void myMeetingList_clickFloatingButtonAction_shouldStartNewMeetingActivity(){
         onView(ViewMatchers.withId(R.id.add_meeting)).perform(click());
         onView(withId(R.id.view_add_activity)).check(matches(isDisplayed()));
     }

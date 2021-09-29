@@ -1,4 +1,4 @@
-package com.example.meetingrooms.utils;
+package com.example.meetingrooms.architecture.ui.components.watchers;
 
 import android.text.Editable;
 import android.text.TextWatcher;

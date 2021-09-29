@@ -2,7 +2,7 @@ package com.example.meetingrooms.architecture.domainService;
 
 import com.example.meetingrooms.architecture.database.fakeData.FakeDataGenerator;
 import com.example.meetingrooms.architecture.model.MeetingModel;
-import com.example.meetingrooms.exceptions.MeetingMissingMandatoryFieldsException;
+import com.example.meetingrooms.architecture.domainService.exceptions.MeetingMissingMandatoryFieldsException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class MeetingDomainServiceImpl implements MeetingDomainService {
     }
 
     @Override
-    public void validMeeting(MeetingModel meetingModel) {
+    public void validateMeeting(MeetingModel meetingModel) {
         if (areMandatoryFieldMissing(meetingModel)) {
             throw new MeetingMissingMandatoryFieldsException(getUserMissingFields(meetingModel));
         }

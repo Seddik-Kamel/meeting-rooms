@@ -4,5 +4,5 @@ import com.example.meetingrooms.architecture.model.ParticipantModel;
 
 public interface ParticipantDomainService {
 
-    void validParticipantMail(ParticipantModel participantModel);
+    void validateParticipantEmail(ParticipantModel participantModel);
 }

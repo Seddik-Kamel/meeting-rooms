@@ -1,4 +1,4 @@
-package com.example.meetingrooms.architecture.ui.baseActivity;
+package com.example.meetingrooms.architecture.ui.activities.base;
 
 import android.os.Bundle;
 

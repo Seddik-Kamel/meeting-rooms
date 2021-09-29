@@ -1,6 +1,6 @@
 package com.example.meetingrooms.architecture.domainService;
 
-import com.example.meetingrooms.exceptions.InvalidEmailException;
+import com.example.meetingrooms.architecture.domainService.exceptions.InvalidEmailException;
 import com.example.meetingrooms.architecture.model.ParticipantModel;
 
 import java.util.regex.Matcher;
@@ -19,14 +19,14 @@ public class ParticipantDomainServiceImpl implements ParticipantDomainService {
             Pattern.compile(REGEX_EMAIL, Pattern.CASE_INSENSITIVE);
 
     @Override
-    public void validParticipantMail(ParticipantModel participantModel) {
+    public void validateParticipantEmail(ParticipantModel participantModel) {
 
-        if (isNotValidEmail(participantModel)){
+        if (isEmailInvalid(participantModel)){
             throw new InvalidEmailException();
         }
     }
 
-    public boolean isNotValidEmail(ParticipantModel participantModel) {
+    private boolean isEmailInvalid(ParticipantModel participantModel) {
         String emailStr = participantModel.getMails();
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
 

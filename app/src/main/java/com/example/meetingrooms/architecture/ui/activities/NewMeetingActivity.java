@@ -10,14 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;
-import com.example.meetingrooms.architecture.ui.baseActivity.BaseActivity;
+import com.example.meetingrooms.architecture.ui.activities.base.BaseActivity;
 import com.example.meetingrooms.architecture.model.MeetingModel;
 import com.example.meetingrooms.architecture.model.ParticipantModel;
 import com.example.meetingrooms.architecture.ui.recyclerView.adapters.ParticipantsAdapter;
-import com.example.meetingrooms.architecture.ui.viewModel.SaveMeetingViewModel;
+import com.example.meetingrooms.architecture.ui.viewModel.NewMeetingViewModel;
 import com.example.meetingrooms.architecture.ui.viewModel.ParticipantListViewModel;
-import com.example.meetingrooms.utils.EmailWatcher;
-import com.example.meetingrooms.utils.timePicker.TimePickerFragment;
+import com.example.meetingrooms.architecture.ui.components.watchers.EmailWatcher;
+import com.example.meetingrooms.architecture.ui.components.timePicker.TimePickerFragment;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -31,10 +31,10 @@ import butterknife.OnClick;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class AddMeetingActivity extends BaseActivity {
+public class NewMeetingActivity extends BaseActivity {
 
     @Inject
-    SaveMeetingViewModel addMeetingViewModel;
+    NewMeetingViewModel newMeetingViewModel;
 
     @Inject
     ParticipantListViewModel participantListViewModel;
@@ -118,7 +118,7 @@ public class AddMeetingActivity extends BaseActivity {
         MeetingModel meeting = new MeetingModel(4, hourMeeting,
                 place,
                 subject, participantListViewModel.getParticipantsList());
-        addMeetingViewModel.saveMeeting(meeting);
+        newMeetingViewModel.saveMeeting(meeting);
     }
 
     private void initParticipantView() {

@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class AddMeetingActivityTest {
+public class NewMeetingActivityTest {
 
     @Before
     public void setUp() {

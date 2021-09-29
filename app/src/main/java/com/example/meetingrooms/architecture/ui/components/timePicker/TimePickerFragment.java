@@ -1,4 +1,4 @@
-package com.example.meetingrooms.utils.timePicker;
+package com.example.meetingrooms.architecture.ui.components.timePicker;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;

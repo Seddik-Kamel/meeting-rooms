@@ -1,4 +1,4 @@
-package com.example.meetingrooms.exceptions;
+package com.example.meetingrooms.architecture.domainService.exceptions;
 
 import java.util.List;
 

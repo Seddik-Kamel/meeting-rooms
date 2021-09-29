@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MeetingRooms">
         <activity
-            android:name=".architecture.ui.activities.AddMeetingActivity"
+            android:name=".architecture.ui.activities.NewMeetingActivity"
             android:exported="true"
             android:label="@string/title_activity_add_meeting" />
         <activity

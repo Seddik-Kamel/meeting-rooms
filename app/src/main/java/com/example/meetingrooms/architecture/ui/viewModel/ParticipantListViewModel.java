@@ -1,7 +1,7 @@
 package com.example.meetingrooms.architecture.ui.viewModel;
 
 import com.example.meetingrooms.architecture.applicationservices.ParticipantService;
-import com.example.meetingrooms.exceptions.InvalidEmailException;
+import com.example.meetingrooms.architecture.domainService.exceptions.InvalidEmailException;
 import com.example.meetingrooms.architecture.infrastructure.repository.ParticipantRepositoryService;
 import com.example.meetingrooms.architecture.model.ParticipantModel;
 

@@ -4,5 +4,5 @@ import com.example.meetingrooms.architecture.model.MeetingModel;
 
 public interface MeetingDomainService {
 
-    void validMeeting(MeetingModel meetingModel);
+    void validateMeeting(MeetingModel meetingModel);
 }

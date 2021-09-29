@@ -18,7 +18,7 @@ public class ParticipantServiceImpl implements ParticipantService {
 
     @Override
     public void saveParticipant(ParticipantModel participantModel) {
-        participantDomainService.validParticipantMail(participantModel);
+        participantDomainService.validateParticipantEmail(participantModel);
         participantRepositoryService.create(participantModel);
     }
 }

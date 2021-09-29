@@ -1,7 +1,7 @@
 package com.example.meetingrooms.di.modules;
 
-import com.example.meetingrooms.architecture.applicationservices.AddMeetingService;
-import com.example.meetingrooms.architecture.applicationservices.AddMeetingServiceImpl;
+import com.example.meetingrooms.architecture.applicationservices.NewMeetingService;
+import com.example.meetingrooms.architecture.applicationservices.NewMeetingServiceImpl;
 
 import dagger.Binds;
 import dagger.Module;
@@ -13,5 +13,5 @@ import dagger.hilt.components.SingletonComponent;
 public abstract class AddMeetingModule {
 
     @Binds
-    abstract AddMeetingService provideAddMeetingService(AddMeetingServiceImpl addMeetingService);
+    abstract NewMeetingService provideAddMeetingService(NewMeetingServiceImpl addMeetingService);
 }

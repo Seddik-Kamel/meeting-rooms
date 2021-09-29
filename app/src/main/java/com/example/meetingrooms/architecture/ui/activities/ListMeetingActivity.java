@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetingrooms.R;
-import com.example.meetingrooms.architecture.ui.baseActivity.BaseActivity;
+import com.example.meetingrooms.architecture.ui.activities.base.BaseActivity;
 import com.example.meetingrooms.architecture.ui.events.DeleteMeetingEvent;
 import com.example.meetingrooms.architecture.ui.recyclerView.adapters.MeetingAdapter;
 import com.example.meetingrooms.architecture.ui.viewModel.MeetingListViewModel;
@@ -133,7 +133,7 @@ public class ListMeetingActivity extends BaseActivity {
 
     @OnClick(R.id.add_meeting)
     void addNewMeeting() {
-        Intent intent = new Intent(getApplicationContext(), AddMeetingActivity.class);
+        Intent intent = new Intent(getApplicationContext(), NewMeetingActivity.class);
         startActivity(intent);
     }
 

@@ -25,16 +25,16 @@ public class MeetingListViewModelTest {
     @Test
     public void createMetingWithSuccess() {
         MeetingModel meetingModel = FakeDataGenerator.DUMMY_MEETING.get(0);
-        meetingRepositoryService.delete(meetingModel);
-        meetingRepositoryService.create(meetingModel);
-        assertTrue(meetingRepositoryService.getMeeting().contains(meetingModel));
+        meetingListViewModel.deleteMeeting(meetingModel);
+        meetingListViewModel.createMeeting(meetingModel);
+        assertTrue(meetingListViewModel.getMeeting().contains(meetingModel));
     }
 
     @Test
     public void deleteMeetingWithSuccess() {
         MeetingModel meetingModelToDelete = meetingListViewModel.getMeeting().get(0);
-        assertTrue(meetingRepositoryService.getMeeting().contains(meetingModelToDelete));
-        meetingRepositoryService.delete(meetingModelToDelete);
-        assertFalse(meetingRepositoryService.getMeeting().contains(meetingModelToDelete));
+        assertTrue(meetingListViewModel.getMeeting().contains(meetingModelToDelete));
+        meetingListViewModel.deleteMeeting(meetingModelToDelete);
+        assertFalse(meetingListViewModel.getMeeting().contains(meetingModelToDelete));
     }
 }

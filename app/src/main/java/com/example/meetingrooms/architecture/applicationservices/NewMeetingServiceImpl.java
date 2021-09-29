@@ -6,14 +6,14 @@ import com.example.meetingrooms.architecture.model.MeetingModel;
 
 import javax.inject.Inject;
 
-public class AddMeetingServiceImpl implements AddMeetingService {
+public class NewMeetingServiceImpl implements NewMeetingService {
 
     private  final MeetingDomainService meetingService;
     private  final MeetingRepositoryService meetingRepositoryService;
 
 
     @Inject
-    public AddMeetingServiceImpl(MeetingDomainService meetingService,
+    public NewMeetingServiceImpl(MeetingDomainService meetingService,
                                  MeetingRepositoryService meetingRepositoryService) {
 
         this.meetingService = meetingService;
@@ -22,7 +22,7 @@ public class AddMeetingServiceImpl implements AddMeetingService {
 
     @Override
     public void saveMeeting(MeetingModel meetingModel) {
-        meetingService.validMeeting(meetingModel);
+        meetingService.validateMeeting(meetingModel);
         meetingRepositoryService.create(meetingModel);
     }
 
